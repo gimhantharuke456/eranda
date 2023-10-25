@@ -1,76 +1,51 @@
-public class Validation {
+getwd()
+setwd("C:\\Users\\erand\\Desktop\\P6")
 
-    public static boolean passwordValidation(String password) {
-        // Password must have at least 8 characters
-        return password.length() >= 8;
-    }
+data2<-read.table("Forest.txt",head(TRUE),sep=",")
+data2
 
-    public static boolean usernameValidation(String username) {
-        // Username must have at least 6 characters
-        return username.length() >= 6;
-    }
+attach(data2)
 
-    public static void main(String[] args) {
-        // Example usage
-        String username = "user123";
-        String password = "securePwd";
-
-        if (usernameValidation(username)) {
-            System.out.println("Username is valid.");
-        } else {
-            System.out.println("Username must have at least 6 characters.");
-        }
-
-        if (passwordValidation(password)) {
-            System.out.println("Password is valid.");
-        } else {
-            System.out.println("Password must have at least 8 characters.");
-        }
-    }
-}
+pie(data2)
 
 
 
-import java.util.Scanner;
+summary(data2)
 
-// Custom exception for validation errors
-class ValidationException extends Exception {
-    public ValidationException(String message) {
-        super(message);
-    }
-}
+summary(temp)
 
-public class DemoApp {
+boxplot(wind,outline = TRUE)
+boxplot(area,outline = TRUE)
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+sd(wind)
 
-        try {
-            System.out.print("Enter username: ");
-            String username = scanner.nextLine();
+IQR
 
-            System.out.print("Enter password: ");
-            String password = scanner.nextLine();
 
-            validateInputs(username, password);
 
-            System.out.println("Validation successful. Username and password are valid.");
+#lab7
+dbinom(40,44,.92)
 
-        } catch (ValidationException e) {
-            System.out.println("Validation error: " + e.getMessage());
-        } finally {
-            scanner.close();
-        }
-    }
+pbinom(35,44,0.92)
 
-    private static void validateInputs(String username, String password) throws ValidationException {
-        if (!Validation.usernameValidation(username)) {
-            throw new ValidationException("Username must have at least 6 characters.");
-        }
+1-pbinom(37,44,0.92)
 
-        if (!Validation.passwordValidation(password)) {
-            throw new ValidationException("Password must have at least 8 characters.");
-        }
-    }
-}
+pbinom(42,44,0.92)-pbinom(39,44,0.92)
 
+dpois(6,4.5)
+
+ppois(6,4.5,lower.tail = FALSE)
+
+
+pexp(3,rate = 0.5)
+
+pexp(3,rate = 0.5,lower.tail = FALSE)
+
+pexp(4,rate = 0.5)-pexp(2,rate = 0.5)
+
+
+pnorm(36.9,36.8,0.4)-pnorm(36.4,36.8,0.4)
+
+qnorm(0.012,36.8,0.4)
+
+qnorm(0.99,36.8,0.4)
